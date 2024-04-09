@@ -1,0 +1,36 @@
+﻿@model IEnumerable<MovieApp.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<div class="container m-3">
+    <a class="btn btn-success" asp-action="Create">Create New</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-4">
+
+                <div class="card" style="width: 18rem; height: 100%">
+                    <img class="card-img-top" src="@item.MovieImage" alt="Card image cap">
+                    <div class="card-body">
+                        <h3 class="card-title">@item.MovieName</h3>
+                        <h6 class="card-text">@item.Rating</h6>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a class="btn btn-info" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+
+                </div>
+              </div>
+
+        }
+    </div>
+</div>

@@ -1,0 +1,31 @@
+﻿@model MovieApp.Models.DTO.AddToShoppingCartDTO
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+
+<div class="container">
+    <form method="post" asp-action="AddTicketToCart">
+        <input type="hidden" asp-for="SelectedTicketId" value="@Model.SelectedTicketId" class="form-control"/>
+
+        <div class="row mt-4">
+            <div class="form-group">
+                <label asp-for="SelectedTicket.Movie.MovieName" class="control-label"></label>
+                <input disabled asp-for="SelectedTicket.Movie.MovieName" class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="form-group">
+                <label asp-for="Quantity" class="control-label"></label>
+                <input asp-for="Quantity" type="number" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group m-3">
+            <button type="submit" class="btn btn-success">Add To Cart</button>
+        </div>
+
+    </form>
+</div>
